@@ -1,78 +1,269 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
-  <title id="title">Javier Sepúlveda, Software Engineer y AI Engineer</title>
-  <desc id="desc">Encabezado editorial del perfil nzvvr, enfocado en software, inteligencia artificial y diseño.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1900" role="img" aria-labelledby="title desc">
+  <title id="title">Javier Sepúlveda — Software Engineer y AI Engineer</title>
+  <desc id="desc">Perfil orbital de nzvvr con experiencia, especialidades y tecnologías sobre una escena espacial.</desc>
 
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#080B14"/>
-      <stop offset="0.55" stop-color="#0D1222"/>
-      <stop offset="1" stop-color="#10162B"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050713"/>
+      <stop offset="0.52" stop-color="#080D1B"/>
+      <stop offset="1" stop-color="#0D1325"/>
+    </linearGradient>
+    <linearGradient id="planet" x1="0.15" y1="0" x2="0.88" y2="1">
+      <stop offset="0" stop-color="#271228"/>
+      <stop offset="0.33" stop-color="#6F263E"/>
+      <stop offset="0.62" stop-color="#B94C52"/>
+      <stop offset="0.82" stop-color="#5A203C"/>
+      <stop offset="1" stop-color="#160E25"/>
+    </linearGradient>
+    <linearGradient id="atmosphere" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FB7185"/>
+      <stop offset="0.42" stop-color="#FDBA74"/>
+      <stop offset="0.7" stop-color="#C084FC"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#60A5FA"/>
-      <stop offset="0.5" stop-color="#22D3EE"/>
-      <stop offset="1" stop-color="#A78BFA"/>
+      <stop offset="0" stop-color="#F472B6"/>
+      <stop offset="0.5" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#22D3EE"/>
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#2563EB" stop-opacity="0.26"/>
-      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141B31" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0D1427" stop-opacity="0.74"/>
+    </linearGradient>
+    <radialGradient id="planetGlow">
+      <stop offset="0.68" stop-color="#FB7185" stop-opacity="0"/>
+      <stop offset="0.9" stop-color="#FB7185" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.28"/>
     </radialGradient>
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#94A3B8" stroke-opacity="0.055" stroke-width="1"/>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#7C3AED" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="planetTexture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="23" result="noise"/>
+      <feColorMatrix in="noise" values="1 0 0 0 0.12  0 0.45 0 0 0.02  0 0 0.4 0 0.02  0 0 0 0.52 0" result="tint"/>
+      <feBlend in="SourceGraphic" in2="tint" mode="soft-light"/>
+    </filter>
+    <filter id="blur24" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+
+    <pattern id="stars" width="170" height="150" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="24" r="1.1" fill="#E2E8F0" opacity="0.48"/>
+      <circle cx="83" cy="46" r="0.8" fill="#93C5FD" opacity="0.54"/>
+      <circle cx="142" cy="18" r="1.4" fill="#F8FAFC" opacity="0.34"/>
+      <circle cx="39" cy="118" r="0.7" fill="#C4B5FD" opacity="0.55"/>
+      <circle cx="126" cy="105" r="1" fill="#E2E8F0" opacity="0.42"/>
     </pattern>
+    <pattern id="microGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#94A3B8" stroke-opacity="0.035"/>
+    </pattern>
+
     <clipPath id="frame">
-      <rect width="1200" height="420" rx="28"/>
+      <rect width="1200" height="1900" rx="30"/>
+    </clipPath>
+    <clipPath id="planetClip">
+      <circle cx="235" cy="-145" r="575"/>
     </clipPath>
   </defs>
 
   <g clip-path="url(#frame)">
-    <rect width="1200" height="420" fill="url(#background)"/>
-    <rect width="1200" height="420" fill="url(#grid)"/>
-    <circle cx="1030" cy="80" r="330" fill="url(#glow)"/>
-    <circle cx="1110" cy="-50" r="190" fill="#7C3AED" opacity="0.08"/>
-    <path d="M0 2 H1200" stroke="url(#accent)" stroke-width="4"/>
+    <rect width="1200" height="1900" fill="url(#bg)"/>
+    <rect width="1200" height="1900" fill="url(#stars)"/>
+    <rect y="430" width="1200" height="1470" fill="url(#microGrid)"/>
+    <circle cx="1030" cy="180" r="380" fill="url(#halo)"/>
+    <circle cx="120" cy="1130" r="390" fill="url(#halo)" opacity="0.38"/>
 
-    <g font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
-      <g font-size="14" font-weight="700" letter-spacing="2.4">
-        <text x="64" y="69" fill="#60A5FA">NZVVR / PROFILE</text>
-        <text x="1136" y="69" fill="#64748B" text-anchor="end">SOFTWARE × INTELLIGENCE × DESIGN</text>
-      </g>
+    <!-- Planet and orbital scene -->
+    <circle cx="235" cy="-145" r="604" fill="url(#planetGlow)" filter="url(#blur24)"/>
+    <circle cx="235" cy="-145" r="575" fill="url(#planet)" filter="url(#planetTexture)"/>
+    <g clip-path="url(#planetClip)" opacity="0.52">
+      <path d="M-180 74C-40 4 56 48 176 2S402-87 560-23 720 105 828 106L777 238C632 183 543 205 430 255S164 294 26 234-132 145-180 74Z" fill="#F59E8B" opacity="0.28"/>
+      <path d="M-148 264C4 184 108 247 216 205s183-93 300-56 196 91 270 154l-66 111c-111-55-217-47-311 5s-215 52-341 2-183-103-216-157Z" fill="#37172F" opacity="0.55"/>
+      <path d="M-87 -36c105-76 205-80 302-41s192 26 303-13 198-10 291 48L746 78c-124-50-232-38-333 3S194 122 80 74-35 2-87-36Z" fill="#FCD0BC" opacity="0.13"/>
+      <ellipse cx="57" cy="128" rx="96" ry="38" fill="#210F28" opacity="0.45" transform="rotate(-14 57 128)"/>
+      <ellipse cx="410" cy="62" rx="68" ry="25" fill="#FCA5A5" opacity="0.16" transform="rotate(18 410 62)"/>
+      <ellipse cx="310" cy="278" rx="115" ry="32" fill="#1C1026" opacity="0.44" transform="rotate(-8 310 278)"/>
+    </g>
+    <circle cx="235" cy="-145" r="576" fill="none" stroke="url(#atmosphere)" stroke-width="8" filter="url(#softGlow)"/>
+    <circle cx="235" cy="-145" r="590" fill="none" stroke="#FDA4AF" stroke-opacity="0.18" stroke-width="2"/>
 
-      <text x="64" y="177" fill="#F8FAFC" font-size="62" font-weight="760" letter-spacing="-2.5">Javier Sepúlveda</text>
-      <text x="64" y="222" fill="url(#accent)" font-size="24" font-weight="650" letter-spacing="0.4">@nzvvr · Software Engineer · AI Engineer</text>
+    <path d="M-12 438C188 390 392 378 595 300 735 246 851 171 965 72" fill="none" stroke="#A78BFA" stroke-opacity="0.24" stroke-width="1.5"/>
+    <path d="M17 452C226 406 424 398 617 324 768 266 874 185 980 93" fill="none" stroke="#F472B6" stroke-opacity="0.13" stroke-width="1"/>
+    <circle cx="611" cy="318" r="5" fill="#F8FAFC" filter="url(#softGlow)"/>
+    <circle cx="611" cy="318" r="13" fill="none" stroke="#F8FAFC" stroke-opacity="0.28"/>
 
-      <text x="64" y="279" fill="#A8B3C7" font-size="20" font-weight="430">
-        Construyo productos inteligentes, plataformas modernas e interfaces cuidadas.
-      </text>
-
-      <g transform="translate(64 326)" font-size="13" font-weight="700" letter-spacing="1.1">
-        <g>
-          <rect width="168" height="42" rx="21" fill="#111B31" stroke="#2B4168"/>
-          <circle cx="22" cy="21" r="4" fill="#60A5FA"/>
-          <text x="38" y="26" fill="#CBD5E1">4+ AÑOS SOFTWARE</text>
-        </g>
-        <g transform="translate(184 0)">
-          <rect width="132" height="42" rx="21" fill="#111B31" stroke="#2B4168"/>
-          <circle cx="22" cy="21" r="4" fill="#22D3EE"/>
-          <text x="38" y="26" fill="#CBD5E1">2+ AÑOS IA</text>
-        </g>
-        <g transform="translate(332 0)">
-          <rect width="282" height="42" rx="21" fill="#111B31" stroke="#2B4168"/>
-          <circle cx="22" cy="21" r="4" fill="#A78BFA"/>
-          <text x="38" y="26" fill="#CBD5E1">PRODUCTOS · PLATAFORMAS · IA</text>
-        </g>
-      </g>
+    <!-- Geometric spacecraft -->
+    <g transform="translate(935 174) rotate(-12)" filter="url(#softGlow)">
+      <path d="M-12 0 54-26 105 0 54 26Z" fill="#111A32" stroke="#818CF8" stroke-opacity="0.7"/>
+      <path d="M13 0 54-19 76 0 54 19Z" fill="url(#accent)" opacity="0.72"/>
+      <path d="M-12 0-55-31 15-17Z" fill="#312E81" stroke="#A78BFA" stroke-opacity="0.55"/>
+      <path d="M-12 0-55 31 15 17Z" fill="#172554" stroke="#60A5FA" stroke-opacity="0.55"/>
+      <path d="M105 0 130-7 116 0 130 7Z" fill="#22D3EE"/>
+      <circle cx="54" r="5" fill="#F8FAFC"/>
     </g>
 
-    <g transform="translate(1018 188)" opacity="0.88">
-      <circle r="86" fill="none" stroke="#334155" stroke-width="1"/>
-      <circle r="58" fill="none" stroke="#3B82F6" stroke-opacity="0.42" stroke-width="1" stroke-dasharray="4 8"/>
-      <circle r="8" fill="#22D3EE"/>
-      <circle cx="0" cy="-86" r="5" fill="#60A5FA"/>
-      <circle cx="58" cy="0" r="5" fill="#A78BFA"/>
-      <path d="M0 -58 L58 0 L0 58 L-58 0 Z" fill="none" stroke="url(#accent)" stroke-width="2"/>
+    <!-- Header -->
+    <g font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+      <g font-size="13" font-weight="700" letter-spacing="2.6">
+        <text x="72" y="58" fill="#F8FAFC">NZVVR // PROFILE</text>
+        <text x="1128" y="58" fill="#CBD5E1" text-anchor="end">SOFTWARE / IA / DISEÑO</text>
+      </g>
+
+      <!-- Hero -->
+      <g>
+        <rect x="72" y="474" width="282" height="34" rx="17" fill="#11182B" stroke="#A78BFA" stroke-opacity="0.34"/>
+        <circle cx="91" cy="491" r="4" fill="#22D3EE" filter="url(#softGlow)"/>
+        <text x="106" y="496" fill="#CBD5E1" font-size="12" font-weight="700" letter-spacing="1.5">INGENIERÍA DE SOFTWARE + IA</text>
+
+        <text x="72" y="586" fill="#F8FAFC" font-size="66" font-weight="760" letter-spacing="-2.2">Javier Sepúlveda</text>
+        <text x="72" y="633" fill="url(#accent)" font-size="25" font-weight="650">@nzvvr · Software Engineer · AI Engineer</text>
+
+        <text x="72" y="691" fill="#AAB6CA" font-size="20">
+          <tspan x="72" dy="0">Construyo productos inteligentes, plataformas modernas</tspan>
+          <tspan x="72" dy="31">e interfaces que se sienten tan bien como funcionan.</tspan>
+        </text>
+
+        <g transform="translate(1010 585)">
+          <circle r="65" fill="#0E172C" stroke="#334155"/>
+          <circle r="50" fill="none" stroke="#A78BFA" stroke-opacity="0.46" stroke-dasharray="3 8"/>
+          <path d="M0-28 24-14 24 14 0 28-24 14-24-14Z" fill="none" stroke="url(#accent)" stroke-width="2"/>
+          <text x="0" y="8" fill="#F8FAFC" font-size="24" font-weight="760" text-anchor="middle">JS</text>
+        </g>
+      </g>
+
+      <!-- Experience metrics -->
+      <g transform="translate(72 790)">
+        <g>
+          <rect width="330" height="122" rx="22" fill="url(#card)" stroke="#334155" stroke-opacity="0.8"/>
+          <path d="M0 22A22 22 0 0 1 22 0H178" fill="none" stroke="#F472B6" stroke-width="2"/>
+          <text x="26" y="53" fill="#F8FAFC" font-size="38" font-weight="760">+4</text>
+          <text x="102" y="45" fill="#CBD5E1" font-size="14" font-weight="700" letter-spacing="1.1">AÑOS</text>
+          <text x="102" y="68" fill="#7F8DA5" font-size="14">desarrollando software</text>
+          <text x="26" y="100" fill="#64748B" font-size="12" letter-spacing="1">PLATAFORMAS · SISTEMAS</text>
+        </g>
+        <g transform="translate(363)">
+          <rect width="330" height="122" rx="22" fill="url(#card)" stroke="#334155" stroke-opacity="0.8"/>
+          <path d="M0 22A22 22 0 0 1 22 0H178" fill="none" stroke="#A78BFA" stroke-width="2"/>
+          <text x="26" y="53" fill="#F8FAFC" font-size="38" font-weight="760">+2</text>
+          <text x="102" y="45" fill="#CBD5E1" font-size="14" font-weight="700" letter-spacing="1.1">AÑOS</text>
+          <text x="102" y="68" fill="#7F8DA5" font-size="14">construyendo con IA</text>
+          <text x="26" y="100" fill="#64748B" font-size="12" letter-spacing="1">LLM · RAG · AGENTES</text>
+        </g>
+        <g transform="translate(726)">
+          <rect width="330" height="122" rx="22" fill="url(#card)" stroke="#334155" stroke-opacity="0.8"/>
+          <path d="M0 22A22 22 0 0 1 22 0H178" fill="none" stroke="#22D3EE" stroke-width="2"/>
+          <text x="26" y="50" fill="#F8FAFC" font-size="24" font-weight="720">Microsystem</text>
+          <text x="26" y="76" fill="#8E9BB1" font-size="15">Software &amp; AI Engineer</text>
+          <text x="26" y="100" fill="#64748B" font-size="12" letter-spacing="1">ROL ACTUAL</text>
+        </g>
+      </g>
+
+      <!-- What I build -->
+      <g>
+        <text x="72" y="986" fill="#F472B6" font-size="13" font-weight="700" letter-spacing="2.5">01 / LO QUE CONSTRUYO</text>
+        <line x1="286" y1="981" x2="1128" y2="981" stroke="#334155" stroke-opacity="0.7"/>
+
+        <g transform="translate(72 1028)">
+          <g>
+            <rect width="510" height="142" rx="22" fill="url(#card)" stroke="#334155"/>
+            <circle cx="35" cy="34" r="11" fill="#F472B6" opacity="0.18"/>
+            <circle cx="35" cy="34" r="4" fill="#F472B6"/>
+            <text x="60" y="42" fill="#F8FAFC" font-size="21" font-weight="700">Productos con IA</text>
+            <text x="28" y="82" fill="#96A3B8" font-size="16">
+              <tspan x="28" dy="0">LLM, sistemas RAG, búsqueda semántica</tspan>
+              <tspan x="28" dy="25">y flujos inteligentes de extremo a extremo.</tspan>
+            </text>
+          </g>
+          <g transform="translate(546)">
+            <rect width="510" height="142" rx="22" fill="url(#card)" stroke="#334155"/>
+            <circle cx="35" cy="34" r="11" fill="#A78BFA" opacity="0.18"/>
+            <circle cx="35" cy="34" r="4" fill="#A78BFA"/>
+            <text x="60" y="42" fill="#F8FAFC" font-size="21" font-weight="700">Plataformas modernas</text>
+            <text x="28" y="82" fill="#96A3B8" font-size="16">
+              <tspan x="28" dy="0">Aplicaciones full-stack, APIs y arquitecturas</tspan>
+              <tspan x="28" dy="25">diseñadas para crecer con el producto.</tspan>
+            </text>
+          </g>
+          <g transform="translate(0 166)">
+            <rect width="510" height="142" rx="22" fill="url(#card)" stroke="#334155"/>
+            <circle cx="35" cy="34" r="11" fill="#22D3EE" opacity="0.16"/>
+            <circle cx="35" cy="34" r="4" fill="#22D3EE"/>
+            <text x="60" y="42" fill="#F8FAFC" font-size="21" font-weight="700">Experiencias digitales</text>
+            <text x="28" y="82" fill="#96A3B8" font-size="16">
+              <tspan x="28" dy="0">Interfaces claras, accesibles y cuidadas,</tspan>
+              <tspan x="28" dy="25">centradas en las personas que las usan.</tspan>
+            </text>
+          </g>
+          <g transform="translate(546 166)">
+            <rect width="510" height="142" rx="22" fill="url(#card)" stroke="#334155"/>
+            <circle cx="35" cy="34" r="11" fill="#60A5FA" opacity="0.16"/>
+            <circle cx="35" cy="34" r="4" fill="#60A5FA"/>
+            <text x="60" y="42" fill="#F8FAFC" font-size="21" font-weight="700">Cloud</text>
+            <text x="28" y="82" fill="#96A3B8" font-size="16">
+              <tspan x="28" dy="0">Soluciones desplegadas sobre AWS y Azure</tspan>
+              <tspan x="28" dy="25">con una base sólida y escalable.</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+
+      <!-- Stack constellations -->
+      <g>
+        <text x="72" y="1402" fill="#A78BFA" font-size="13" font-weight="700" letter-spacing="2.5">02 / CONSTELACIÓN TECNOLÓGICA</text>
+        <line x1="360" y1="1397" x2="1128" y2="1397" stroke="#334155" stroke-opacity="0.7"/>
+
+        <g transform="translate(72 1444)">
+          <g>
+            <rect width="510" height="108" rx="20" fill="#0C1427" stroke="#2A3852"/>
+            <text x="26" y="36" fill="#F472B6" font-size="12" font-weight="700" letter-spacing="1.8">FRONTEND</text>
+            <text x="26" y="76" fill="#E2E8F0" font-size="18" font-weight="600">Next.js · React · Vue · TypeScript</text>
+            <circle cx="476" cy="54" r="16" fill="none" stroke="#F472B6" stroke-opacity="0.34"/>
+            <circle cx="476" cy="54" r="4" fill="#F472B6"/>
+          </g>
+          <g transform="translate(546)">
+            <rect width="510" height="108" rx="20" fill="#0C1427" stroke="#2A3852"/>
+            <text x="26" y="36" fill="#22D3EE" font-size="12" font-weight="700" letter-spacing="1.8">BACKEND</text>
+            <text x="26" y="76" fill="#E2E8F0" font-size="18" font-weight="600">Django · NestJS · FastAPI · Python</text>
+            <circle cx="476" cy="54" r="16" fill="none" stroke="#22D3EE" stroke-opacity="0.34"/>
+            <circle cx="476" cy="54" r="4" fill="#22D3EE"/>
+          </g>
+          <g transform="translate(0 128)">
+            <rect width="510" height="108" rx="20" fill="#0C1427" stroke="#2A3852"/>
+            <text x="26" y="34" fill="#A78BFA" font-size="12" font-weight="700" letter-spacing="1.8">AI ENGINEERING</text>
+            <text x="26" y="68" fill="#E2E8F0" font-size="16.5" font-weight="600">Amazon Bedrock · OpenAI Platform</text>
+            <text x="26" y="91" fill="#94A3B8" font-size="15">LangChain · LlamaIndex</text>
+            <circle cx="476" cy="54" r="16" fill="none" stroke="#A78BFA" stroke-opacity="0.34"/>
+            <circle cx="476" cy="54" r="4" fill="#A78BFA"/>
+          </g>
+          <g transform="translate(546 128)">
+            <rect width="510" height="108" rx="20" fill="#0C1427" stroke="#2A3852"/>
+            <text x="26" y="36" fill="#60A5FA" font-size="12" font-weight="700" letter-spacing="1.8">CLOUD</text>
+            <text x="26" y="76" fill="#E2E8F0" font-size="18" font-weight="600">AWS · Azure</text>
+            <circle cx="476" cy="54" r="16" fill="none" stroke="#60A5FA" stroke-opacity="0.34"/>
+            <circle cx="476" cy="54" r="4" fill="#60A5FA"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Closing principle -->
+      <g transform="translate(72 1732)">
+        <rect width="1056" height="120" rx="24" fill="#11182A" stroke="url(#accent)" stroke-opacity="0.55"/>
+        <text x="33" y="45" fill="#64748B" font-size="36" font-family="Georgia, serif">“</text>
+        <text x="68" y="51" fill="#F8FAFC" font-size="20" font-weight="620">La buena ingeniería resuelve el problema.</text>
+        <text x="68" y="82" fill="#B6C1D3" font-size="18">El buen diseño hace que la solución se sienta natural.</text>
+        <text x="1022" y="78" fill="#A78BFA" font-size="12" font-weight="700" letter-spacing="1.6" text-anchor="end">SOFTWARE × IA × DISEÑO</text>
+      </g>
     </g>
   </g>
 
-  <rect x="0.75" y="0.75" width="1198.5" height="418.5" rx="27.25" fill="none" stroke="#26324A" stroke-width="1.5"/>
+  <rect x="1" y="1" width="1198" height="1898" rx="29" fill="none" stroke="#2A3650" stroke-width="2"/>
 </svg>
