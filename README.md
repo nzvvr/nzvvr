@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="./assets/profile-hero.svg" width="100%" alt="Perfil de Javier Sepúlveda — Software Engineer y AI Engineer" />
-</div>
+<h1 align="center">Javier Sepúlveda</h1>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/jvism/"><strong>LinkedIn ↗</strong></a>
